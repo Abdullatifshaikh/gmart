@@ -88,7 +88,7 @@
                             </ul>
                             <ul class="navbar-nav ml-auto mt-10">
                                 <li class="nav-item">
-                                    <a class="nav-link login-button" href="login.html">Login</a>
+                                    <a class="nav-link login-button" href="#">Login</a>
                                 </li>
                             </ul>
                         </div>
@@ -108,12 +108,8 @@
                     <div class="advance-search">
                         <form>
                             <div class="form-row">
-                                <div class="form-group col-md-10">
+                                <div class="form-group col-md-12">
                                     <input type="text" id="myFilter" onkeyup="mysearch()"  class="form-control my-2 my-lg-0"  placeholder="What are you looking for">
-                                </div>
-                                <div class="form-group col-md-2">
-
-                                    <button type="submit" onclick="" class="btn btn-info">Search Now</button>
                                 </div>
                             </div>
                         </form>
@@ -137,7 +133,7 @@
                         <div class="widget category-list">
                             <h4 class="widget-header">All Category</h4>
                             <ul class="category-list" id="myBtnContainer">
-								 <li><button class="btn active" onclick="filterSelection('all')"> Show all</button></li>
+								 <li><button class="btn active" id="all_cat" onclick="filterSelection('all')"> Show all</button></li>
 								 <li><button class="btn" id="c_washing" style="text-align: left;" onclick="filterSelection('washingpowder')">Washing Powder</button></li>
                                  <li><button class="btn" id="c_tea"  onclick="filterSelection('tea')">TEA</button></li>
                                  <li><button class="btn" id="c_soap" onclick="filterSelection('soap')">SOAP</button></li>
@@ -182,7 +178,7 @@
                                     <div class="card washingpowder" >
                                         <div class="thumb-content">
                                             <!-- <div class="price">$200</div> -->
-                                            <a href="single.html">
+                                            <a href="eachproduct/product1.html" ">
                                                 <img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
                                             </a>
                                         </div>
@@ -590,7 +586,14 @@
         if(sessionStorage.getItem("category")=="tea"){ document.getElementById("c_tea").click(); sessionStorage.setItem("category", "");}
     
     }
-
+function selectproduct1(){
+    alert("working");
+    sessionStorage.setItem("itemname", "Bright Washing Powder 5 kg");
+    sessionStorage.setItem("itemcategory", "Washing Powder");
+    sessionStorage.setItem("itemprice", "900");
+    sessionStorage.setItem("itemdetials", "one of the best item for sale");
+    sessionStorage.setItem("itemimg", "images/products/01.png");
+}
 function filterSelection(c) {
     var x, i;
     x = document.getElementsByClassName("card");
@@ -636,6 +639,7 @@ for (var i = 0; i < btns.length; i++) {
     });
 } 
 function mysearch() {
+    document.getElementById("all_cat").click();
     var input, filter, cards, cardContainer, h5, title, i;
     input = document.getElementById("myFilter");
     filter = input.value.toUpperCase();
@@ -650,6 +654,7 @@ function mysearch() {
         }
     }
 }
+
 </script>
     <!-- JAVASCRIPTS -->
     <script src="plugins/jQuery/jquery.min.js"></script>
