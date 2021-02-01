@@ -68,7 +68,7 @@
               </ul>
               <ul class="navbar-nav ml-auto mt-10">
                 <li class="nav-item">
-                  <a class="nav-link login-button" href="login.html">Login</a>
+                  <a class="nav-link login-button" href="#">Login</a>
                 </li>
               </ul>
             </div>
@@ -109,28 +109,26 @@
                 </div>
             </div>
             <div class="col-md-6">
-                    <form action="#">
+                    <form id="frm1" action="">
                         <fieldset class="p-4">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-6 py-2">
-                                        <input type="text" placeholder="Name *" class="form-control" required>
+                                        <input type="text" placeholder="Name *" id="fname" class="form-control" required>
                                     </div>
                                     <div class="col-lg-6 pt-2">
-                                        <input type="email" placeholder="Email *" class="form-control" required>
+                                        <input type="email" placeholder="Email *" id="email" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
-                            <select name="" id="" class="form-control w-100">
-                                <option >Select City</option>
-                                <option value="Gambat">Gambat</option>
-                                <option value="Ranipur">Ranipur</option>
-                                <option value="Khora">Khora</option>
-                                <option value="othercity">Other City</option>
-                            </select>
-                            <textarea name="message" id=""  placeholder="Message *" class="border w-100 p-3 mt-3 mt-lg-4" required></textarea>
+                            <div class="row">
+                              <div class="col-lg-6 py-2">
+                                  <input type="text" placeholder="City *" id="city" class="form-control" required>
+                              </div>
+                          </div>
+                            <textarea name="message" id="message"  placeholder="Message *" class="border w-100 p-3 mt-3 mt-lg-4" required></textarea>
                             <div class="btn-grounp">
-                                <button type="submit" class="btn btn-primary mt-2 float-right">SUBMIT</button>
+                                <input type="submit" onclick="contact_us()" class="btn btn-primary mt-2 float-right" value="Submit">
                             </div>
                         </fieldset>
                     </form>
@@ -199,7 +197,22 @@
 
 
 
+<script>
+  function contact_us() {
+  var name = document.getElementById("fname").value;
+  var email = document.getElementById("email").value;
+  var city = document.getElementById("city").value;
+  var message = document.getElementById("message").value;
 
+  var text= "data === name: "+name+" , email: "+email+" , city: "+city+" , message:"+message;
+  var one="https://wa.me/"
+  var number="923055521792"
+  var two="/?text="
+  var link=one+number+two+text
+  open(link)
+  
+}
+</script>
 <!-- JAVASCRIPTS -->
 <script src="plugins/jQuery/jquery.min.js"></script>
 <script src="plugins/bootstrap/js/popper.min.js"></script>
