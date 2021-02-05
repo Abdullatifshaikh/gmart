@@ -128,7 +128,7 @@
                           </div>
                             <textarea name="message" id="message"  placeholder="Message *" class="border w-100 p-3 mt-3 mt-lg-4" required></textarea>
                             <div class="btn-grounp">
-                                <input type="submit" onclick="contact_us()" class="btn btn-primary mt-2 float-right" value="d">
+                                <input type="submit" onclick="contact_us()" class="btn btn-primary mt-2 float-right" value="Submit">
                             </div>
                         </fieldset>
                     </form>
@@ -198,19 +198,28 @@
 
 
 <script>
-  function contact_us() {
-  var name = document.getElementById("fname").value;
-  var email = document.getElementById("email").value;
-  var city = document.getElementById("city").value;
-  var message = document.getElementById("message").value;
-
-  var text= "data === name: "+name+" , email: "+email+" , city: "+city+" , message:"+message;
-  var one="https://wa.me/"
-  var number="923055521792"
-  var two="/?text="
-  var link=one+number+two+text
- window.location.href=link;
   
+  
+
+  function contact_us() {
+    var name = document.getElementById("fname").value;
+    var email = document.getElementById("email").value;
+    var city = document.getElementById("city").value;
+    var message = document.getElementById("message").value;
+  	if (name === ""){
+		alert("plz fill all the form");
+ 	 } else{
+		var text= "data === name: "+name+" , email: "+email+" , city: "+city+" , message:"+message;
+ 	 	var one="https://wa.me/";
+  		var number="923055521792";
+  		var two="/?text=";
+      var link=one+number+two+text;
+      name="";
+      email="";
+      city="";
+      message="";
+  		window.open(link,'_blank');
+	}
 }
 </script>
 <!-- JAVASCRIPTS -->
